@@ -4,6 +4,8 @@ services:
   web:
     build:
       context: .
+      target: runner
+    command: npm run start
     ports:
       - "3002:3002"
     env_file:
