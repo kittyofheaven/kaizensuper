@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0e1118;
+  --surface: #121726;
+  --muted: #1a1f2f;
+  --border: #202535;
+  --foreground: #e9ecf5;
+  --muted-foreground: #b3b8c7;
+  --primary: #9b87f5;
+  --primary-foreground: #0b0d16;
+  --accent: #77e0c3;
+  --accent-foreground: #0b1217;
+  --warning: #f5c26b;
+  --error: #f27d7d;
+  --success: #8de0b8;
+  --ring: #9b87f5;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-success: var(--success);
+  --color-ring: var(--ring);
+  --font-sans: var(--font-space-grotesk);
+  --font-mono: var(--font-jetbrains-mono);
+}
+
+* {
+  border-color: var(--border);
+}
+
+body {
+  background-color: var(--background);
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(155, 135, 245, 0.08), transparent 32%),
+    radial-gradient(circle at 80% 0%, rgba(119, 224, 195, 0.1), transparent 26%),
+    linear-gradient(135deg, rgba(17, 22, 37, 0.96), rgba(12, 14, 22, 0.92)),
+    radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.04) 1px, transparent 0);
+  background-size: auto, auto, auto, 26px 26px;
+  background-attachment: fixed;
+  color: var(--foreground);
+  font-family: var(--font-space-grotesk), "Space Grotesk", "Sora", system-ui,
+    -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--foreground);
+  text-decoration: none;
+}
+
+.card {
+  background: linear-gradient(135deg, rgba(18, 23, 38, 0.92), rgba(18, 23, 38, 0.72));
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow:
+    0 10px 60px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.02),
+    0 16px 40px rgba(155, 135, 245, 0.12);
+}
+
+.glass {
+  background: linear-gradient(145deg, rgba(18, 22, 34, 0.75), rgba(14, 17, 24, 0.7));
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+}
+
+.pill {
+  border-radius: 9999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 6px 12px;
+}
+
+.glow {
+  box-shadow:
+    0 10px 60px rgba(155, 135, 245, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--muted);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--primary), #7c6de3);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #7c6de3, var(--primary));
+}
