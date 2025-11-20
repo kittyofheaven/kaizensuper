@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import {
   ArrowRight,
@@ -13,7 +13,7 @@ import { useAuth } from "@/contexts/auth-context";
 import { API_BASE_URL } from "@/lib/api";
 import { cn } from "@/lib/utils";
 
-export default function LoginPage() {
+function LoginPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { login, isAuthenticated, isAdmin, isLoading } = useAuth();
@@ -187,5 +187,19 @@ export default function LoginPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex min-h-screen items-center justify-center text-muted-foreground">
+          Loading...
+        </div>
+      }
+    >
+      <LoginPageContent />
+    </Suspense>
   );
 }
